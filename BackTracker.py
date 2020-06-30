@@ -32,15 +32,15 @@ class BackTracker:
 					self.current_node = self.maze[r]
 
 					self.stack.append(self.current_node)
-			return self.current_node
 		elif self.visited[0,0] == 0:
-			self.visited[0,0] = 1
-			self.stack.append(self.maze[0,0])
-			self.current_node = self.maze[0,0]
+			r = (randint(0, self.maze.shape[0]-1), randint(0, self.maze.shape[1]-1))
+			self.visited[r] = 1
+			self.stack.append(self.maze[r])
+			self.current_node = self.maze[r]
 		else:
 			self.generated = False
 
-			return self.maze[0,0]
+			self.current_node = None
 
 	def draw(self, screen):
 		# Update maze
@@ -59,7 +59,8 @@ class BackTracker:
 		for n in self.stack:
 			self.draw_node(n, screen, self.box_boarder_color, self.box_stack_color)
 		# Drawing current Position
-		self.draw_node(self.current_node, screen, self.box_boarder_color, self.box_current_fill_color)
+		if self.current_node != None:
+			self.draw_node(self.current_node, screen, self.box_boarder_color, self.box_current_fill_color)
 
 	def draw_node(self, node, screen, boarder_color, fill_color):
 		x, y = node.position
