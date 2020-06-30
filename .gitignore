@@ -36,4 +36,5 @@
 *.sublime-workspace
 
 # Dataset folder
-Datasets/
+__pycache__/
+screenshots/
