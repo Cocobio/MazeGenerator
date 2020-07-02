@@ -1,9 +1,9 @@
 import pygame
 import numpy as np
+import copy
 from random import randint
 
 class BackTracker:
-	# Creates rectangle for maze potition
 	box_boarder_color = (24, 27, 30)
 	box_fill_color = (78, 245, 236)
 	box_visited_fill_color = (255, 174, 43)
@@ -12,7 +12,7 @@ class BackTracker:
 
 	def __init__(self, maze, box):
 		self.stack = []
-		self.maze = maze
+		self.maze = copy.deepcopy(maze)
 		self.box = box
 		self.visited = np.zeros(self.maze.shape)
 
@@ -38,14 +38,11 @@ class BackTracker:
 			self.stack.append(self.maze[r])
 			self.current_node = self.maze[r]
 		else:
-			self.generated = False
+			self.generated = True
 
 			self.current_node = None
 
 	def draw(self, screen):
-		# Update maze
-		# current_node = backtracker(stack, self.maze, self.visited)
-
 		# Drawing maze
 		for i in range(self.maze.shape[0]):
 			for j in range(self.maze.shape[1]):
