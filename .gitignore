@@ -35,6 +35,9 @@
 *.sublime-project
 *.sublime-workspace
 
+# Nvim session files
+Session.vim
+
 # Dataset folder
 __pycache__/
 screenshots/

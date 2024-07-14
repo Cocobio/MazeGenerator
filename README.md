@@ -1,7 +1,7 @@
 # Maze Generator implementation on python and pygames
 
 ### About
-Testing algorithms from the wiki for creation and resolutions for mazes.
+Testing algorithms from the wiki for creation of mazes.
 
 ### Implementations:
 
